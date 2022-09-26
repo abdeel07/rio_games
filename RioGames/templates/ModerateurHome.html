@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="INTUITIVE">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>ModerateurHome</title>
+    <link rel="stylesheet" href="../static/css/nicepage.css" media="screen">
+<link rel="stylesheet" href="../static/css/ModerateurHome.css" media="screen">
+    <script class="u-script" type="text/javascript" src="../static/js/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="../static/js/nicepage.js" defer=""></script>
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "../static/images/Capturedcran2022-04-24202228.png",
+		"sameAs": [
+				"https://facebook.com/name",
+				"https://twitter.com/name"
+		]
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Se connecter">
+    <meta name="twitter:description" content="">
+    <meta property="og:title" content="Se connecter">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode">
+
+    {% include './HeaderMod.html' %}
+
+    <section class="u-align-center u-clearfix u-section-1" id="sec-59d5">
+      <h2 class="u-custom-font u-font-montserrat u-text u-text-default u-text-palette-3-base u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1000"><span class="u-file-icon u-icon u-icon-1"><img src="../static/images/5969474.png" alt="">
+    </span>&nbsp;Bonjour Mr {{user.username}}<span style="font-weight: 700;"></span>
+      </h2>
+      <div class="u-list u-list-1">
+        <div class="u-repeater u-repeater-1">
+          <div class="u-border-1 u-border-grey-75 u-container-style u-hover-feature u-list-item u-radius-21 u-repeater-item u-shape-round u-list-item-1">
+            <div class="u-container-layout u-similar-container u-container-layout-1">
+              <a href="{% url 'AjouterCat' user.pk%}" >
+              <span class="u-file-icon u-icon u-spacing-20 u-icon-2"><img src="../static/images/476043.png" alt=""></span>
+              <h3 class="u-align-center u-text u-text-default u-text-2">Ajouter Catégorie</h3></a>
+            </div>
+          </div>
+          <div class="u-align-center u-border-1 u-border-grey-75 u-container-style u-hover-feature u-list-item u-radius-21 u-repeater-item u-shape-round u-list-item-2">
+            <div class="u-container-layout u-similar-container u-container-layout-2">
+              <a href="{% url 'AjouterElem' user.pk%}" >
+              <span class="u-file-icon u-icon u-spacing-20 u-icon-3"><img src="../static/images/4394574.png" alt=""></span>
+              <h3 class="u-align-center u-text u-text-default u-text-3">Ajouter Element</h3></a>
+            </div>
+          </div>
+          <div class="u-align-center u-border-1 u-border-grey-75 u-container-style u-hover-feature u-list-item u-radius-21 u-repeater-item u-shape-round u-list-item-2">
+            <div class="u-container-layout u-similar-container u-container-layout-2">
+              <a href="{% url 'Comment' %}" >
+              <span class="u-file-icon u-icon u-spacing-20 u-icon-3"><img src="../static/images/1041916.png" alt=""></span>
+              <h3 class="u-align-center u-text u-text-default u-text-3">Commentaires</h3></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+    </section>
+    
+    
+    {% include './Footer.html' %}
+    
+  </body>
+</html>

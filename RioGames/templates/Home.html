@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+  <head>
+    {% include './linkfooter.html' %}
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="A vous de jouer">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="../static/css/nicepage.css" media="screen">
+    <link rel="stylesheet" href="../static/css/Accueil.css" media="screen">
+    <script class="u-script" type="text/javascript" src="../static/js/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="../static/js/nicepage.js" defer=""></script>
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Oswald:200,300,400,500,600,700|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i|Aclonica:400">
+    
+    <script src=
+    "https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js">
+      </script>
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "../static/images/Capturedcran2022-04-24202228.png",
+		"sameAs": [
+				"https://facebook.com/name",
+				"https://twitter.com/name"
+		]
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Accueil">
+    <meta name="twitter:description" content="">
+    <meta property="og:title" content="Accueil">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-overlap u-stick-footer u-xl-mode">
+    
+    {% include './Header.html' %}
+
+    <section class="u-align-left u-clearfix u-image u-section-1" id="carousel_d3a0" data-image-width="1774" data-image-height="898">
+      
+      <h2 class="u-custom-font u-hover-feature u-text u-text-palette-1-dark-1 u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-direction="" data-animation-delay="0">A vous de jouer</h2>
+      
+      <p class="u-text u-text-palette-1-dark-1 u-text-2">Amusez vous pour mieux apprendre</p>
+    </section>
+
+    <section class="u-align-center u-clearfix u-grey-5 u-section-2" id="carousel_8895">
+      
+      <div class="u-container-style u-custom-color-4 u-expanded-width u-group u-shape-rectangle u-group-1">
+        <div class="u-container-layout u-container-layout-1">
+          <div class="u-align-center u-list u-list-1">
+            <div class="u-repeater u-repeater-1">
+              {% for c in Cat%}
+              <div class="u-container-style u-gradient u-hover-feature u-list-item u-radius-50 u-repeater-item u-shape-round u-list-item-1" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-direction="">
+                <div class="u-container-layout u-similar-container u-container-layout-2">
+                  <div class="u-align-center u-clearfix u-group-elements u-group-elements-1">
+                    <a href="{% url 'Element' c.pk%}" >
+                    <span class="u-file-icon u-icon u-icon-1">
+                    <img src="{{ c.image.url }}" alt=""></span></a>
+                    <h5 class="u-custom-font u-font-montserrat u-text u-text-1"> {{c.name}}</h5>
+                  </div>
+                </div>
+              </div>
+              {%endfor%}
+            </div>
+          </div>
+          <a href="{% url 'JeuxHome' %}" class="u-align-left u-border-none u-border-palette-4-dark-1 u-btn u-btn-round u-button-style u-hover-feature u-hover-palette-2-light-2 u-palette-4-dark-1 u-radius-41 u-btn-1" data-animation-name="customAnimationIn" data-animation-duration="1000">Nos Jeux&nbsp;<span class="u-file-icon u-icon u-icon-5"><img src="../static/images/556130.png" alt=""></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="u-clearfix u-grey-5 u-section-3" id="carousel_660c">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-gutter-30 u-layout-wrap u-layout-wrap-1">
+          <div class="u-gutter-0 u-layout">
+            <div class="u-layout-row">
+              <div class="u-size-30-sm u-size-30-xl u-size-30-xs u-size-33-lg u-size-60-md">
+                <div class="u-layout-col">
+                  <div class="u-size-30">
+                    <div class="u-layout-row">
+                      <div class="u-container-style u-image u-image-round u-layout-cell u-left-cell u-radius-50 u-size-30 u-image-1" src="" data-image-width="1024" data-image-height="400" data-animation-name="fadeIn" data-animation-duration="400" data-animation-delay="700">
+                        <div class="u-container-layout u-container-layout-1"></div>
+                      </div>
+                      <div class="u-container-style u-image u-image-round u-layout-cell u-radius-50 u-size-30 u-image-2" src="" data-image-width="1000" data-image-height="400" data-animation-name="fadeIn" data-animation-duration="400" data-animation-delay="700">
+                        <div class="u-container-layout u-container-layout-2"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="u-size-30">
+                    <div class="u-layout-row">
+                      <div class="u-container-style u-image u-image-round u-layout-cell u-left-cell u-radius-50 u-size-30 u-image-3" src="" data-image-width="1254" data-image-height="400" data-animation-name="fadeIn" data-animation-duration="400" data-animation-delay="700">
+                        <div class="u-container-layout u-container-layout-3"></div>
+                      </div>
+                      <div class="u-container-style u-image u-image-round u-layout-cell u-radius-50 u-size-30 u-image-4" src="" data-image-width="700" data-image-height="400" data-animation-name="fadeIn" data-animation-duration="400" data-animation-delay="700">
+                        <div class="u-container-layout u-container-layout-4"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="u-size-27-lg u-size-30-sm u-size-30-xl u-size-30-xs u-size-60-md">
+                <div class="u-layout-col">
+                  <div class="u-container-style u-layout-cell u-right-cell u-size-60 u-white u-layout-cell-5" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-direction="">
+                    <div class="u-container-layout u-container-layout-5">
+                      <h2 class="u-align-center u-custom-font u-font-oswald u-text u-text-palette-2-base u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1000"> Vous pouvez apprener en jouant. Transformez chaque moment de votre vie en jeu&nbsp;amusant !</h2>
+                      <p class="u-align-center u-text u-text-2"> Bienvenue sur notre blog qui vouz aidez  à apprendre naturellement grâce à des jeux éducatifs</p><span class="u-file-icon u-icon u-icon-circle u-palette-1-base u-icon-1"><img src="../static/images/6946250.png" alt=""></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h1 class="u-align-center u-custom-font u-font-source-sans-pro u-hover-feature u-text u-text-palette-1-dark-1 u-text-3" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-direction="">Passez de votre photo au dessin animé en un clic</h1>
+    </section>
+
+    <section id="carousel_7c63" class="u-carousel u-carousel-duration-500 u-carousel-left u-slide u-block-d50a-1" data-u-ride="carousel" data-interval="4250">
+      <ol class="u-carousel-indicators u-hidden u-block-d50a-8">
+        <li data-u-target="#carousel_7c63" class="u-active u-grey-30" data-u-slide-to="0" style="width: 40px; height: 5px;"></li>
+        <li data-u-target="#carousel_7c63" class="u-grey-30" data-u-slide-to="1" style="width: 40px; height: 5px;"></li>
+        <li data-u-target="#carousel_7c63" class="u-grey-30" data-u-slide-to="2" style="width: 40px; height: 5px;"></li>
+        <li data-u-target="#carousel_7c63" class="u-grey-30" data-u-slide-to="3" style="width: 40px; height: 5px;"></li>
+        <li data-u-target="#carousel_7c63" class="u-grey-30" data-u-slide-to="4" style="width: 40px; height: 5px;"></li>
+        <li data-u-target="#carousel_7c63" class="u-grey-30" style="width: 40px; height: 5px;" data-u-slide-to="5"></li>
+      </ol>
+      <div class="u-carousel-inner" role="listbox">
+        <div class="skrollable skrollable-between u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-4-1" src="" data-image-width="597" data-image-height="302">
+          <p class="u-large-text u-text u-text-variant u-text-1"> Dessinez-vous avec nos effets de dessin animé de renommée mondiale !<span style="font-weight: 700;">
+              <span style="font-weight: 400;"></span>
+            </span>
+          </p>
+          <a href="{% url 'convertImg'%}" class="u-border-2 u-border-palette-2-base u-btn u-btn-round u-button-style u-palette-2-base u-radius-50 u-btn-1"> essayer maintenant</a>
+        </div>
+        <div class="skrollable skrollable-between u-align-center u-carousel-item u-clearfix u-image u-shading u-section-4-2" src="" data-image-width="937" data-image-height="591">
+          <p class="u-large-text u-text u-text-variant u-text-1"> Dessinez-vous avec nos effets de dessin animé de renommée mondiale !<span style="font-weight: 700;">
+              <span style="font-weight: 400;"></span>
+            </span>
+          </p>
+          <a href="{% url 'convertImg'%}" class="u-border-2 u-border-palette-2-base u-btn u-btn-round u-button-style u-palette-2-base u-radius-50 u-btn-1"> essayer maintenant</a>
+        </div>
+        
+        
+      </div>
+      <a class="u-carousel-control u-carousel-control-prev u-text-body-alt-color u-block-d50a-9" href="#carousel_7c63" role="button" data-u-slide="prev">
+        <span aria-hidden="true">
+          <svg viewBox="0 0 8 8"><path d="M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z"></path></svg>
+        </span>
+        <span class="sr-only">
+          <svg viewBox="0 0 8 8"><path d="M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z"></path></svg>
+        </span>
+      </a>
+      <a class="u-carousel-control u-carousel-control-next u-text-body-alt-color u-block-d50a-10" href="#carousel_7c63" role="button" data-u-slide="next">
+        <span aria-hidden="true">
+          <svg viewBox="0 0 8 8"><path d="M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z"></path></svg>
+        </span>
+        <span class="sr-only">
+          <svg viewBox="0 0 8 8"><path d="M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z"></path></svg>
+        </span>
+      </a>
+    </section>
+<script>
+  function contacter()
+{
+  swal('Votre commentaire a été bien envoyer ');
+  
+}</script>
+    <section class="u-align-center u-clearfix u-grey-5 u-section-5" id="carousel_cdad">
+      <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout">
+          <div class="u-layout-col">
+            <div class="u-size-30">
+              <div class="u-layout-row">
+                <div class="cell-temp-clone u-container-style u-effect-hover-zoom u-layout-cell u-size-60 u-layout-cell-1" data-image-width="1600" data-image-height="750" data-animation-name="pulse" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">
+                  <div class="u-background-effect" id="cntct">
+                    <div class="u-background-effect-image u-expanded u-image u-shading u-image-1" data-image-width="1600" data-image-height="750"></div>
+                  </div>
+                  <div class="u-container-layout u-container-layout-1">
+                    <div class="u-shape u-shape-svg u-text-palette-1-base u-shape-1">
+                      <svg class="u-svg-link" preserveAspectRatio="none" viewBox="0 0 160 160" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-e858"></use></svg>
+                      <svg class="u-svg-content" viewBox="0 0 160 160" x="0px" y="0px" id="svg-e858" style="enable-background:new 0 0 160 160;"><path d="M80,30c27.6,0,50,22.4,50,50s-22.4,50-50,50s-50-22.4-50-50S52.4,30,80,30 M80,0C35.8,0,0,35.8,0,80s35.8,80,80,80
+	s80-35.8,80-80S124.2,0,80,0L80,0z"></path></svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="u-size-30">
+              <div class="u-layout-row">
+                <div class="u-container-style u-effect-hover-zoom u-hover-feature u-layout-cell u-size-60 u-layout-cell-2" data-image-width="1600" data-image-height="621">
+                  <div class="u-background-effect" >
+                    <div class="u-background-effect-image u-expanded u-image u-shading u-image-2" data-image-width="1620" data-image-height="687"></div>
+                  </div>
+                  <div class="u-container-layout u-container-layout-2">
+                    <div class="u-align-left u-container-style u-group u-radius-46 u-shape-round u-white u-group-1">
+                      <div class="u-container-layout u-container-layout-3">
+                        <h2 class="u-text u-text-body-color u-text-default u-text-1"> Contacter nous</h2>
+                        <div class="u-form u-form-1">
+                          <form  method="POST" class="u-clearfix u-form-spacing-41 u-form-vertical u-inner-form" source="email" name="form-1" style="padding: 9px;">
+                            {% csrf_token %}
+                            <div class="u-form-group u-form-name u-label-left">
+                              <label for="name-a736" class="u-label u-label-1">Votre Nom</label>
+                              <input type="text" placeholder="Entrer votre nom" id="Nom" name="Nom" class="u-input u-input-rectangle u-palette-5-light-2 u-radius-12" required="">
+                            </div>
+                            <div class="u-form-email u-form-group u-label-left">
+                              <label for="email-a736" class="u-label u-label-2">Email</label>
+                              <input type="email" placeholder="Entrer votre adresse email" id="email" name="email" class="u-input u-input-rectangle u-palette-5-light-2 u-radius-12" required="">
+                            </div>
+                            <div class="u-form-group u-form-message u-label-left">
+                              <label for="message-a736" class="u-label u-label-3">Message</label>
+                              <textarea placeholder="Entrer votre message" rows="4" cols="50" id="message" name="message" class="u-input u-input-rectangle u-palette-5-light-2 u-radius-12" required=""></textarea>
+                            </div>
+                            <div class="u-form-group u-form-submit u-label-left">
+                              <label class="u-label u-label-4"></label>
+                              <input  id="subm" type="submit" value="submit" class="u-form-control-hidden" onclick="contacter()">
+                              <div class="u-align-center u-btn-submit-container">
+                                <a href="#" class="u-active-black u-btn u-btn-round u-btn-submit u-button-style u-hover-black u-palette-1-base u-radius-32 u-btn-1">Envoyer<br>
+                                </a>
+                              </div>
+                            </div>
+                            
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+    <style class="u-overlap-style">.u-overlap:not(.u-sticky-scroll) .u-header {
+background-color: #ffffff !important
+}</style>
+    
+    
+    {% include './Footer.html' %}
+    
+  </body>
+</html>

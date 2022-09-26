@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="​&nbsp;&nbsp;&nbsp;C&amp;apos;est l&amp;apos;heure de quiz​">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="../static/css/nicepage.css" media="screen">
+    
+<link rel="stylesheet" href="../static/css/Quiz.css"  media="screen">
+    <script class="u-script" type="text/javascript" src="../static/js/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="../static/js/nicepage.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="../static/js/Quiz.js" defer=""></script>
+    <meta name="generator" content="Nicepage 4.9.5, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster:400|Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <script src=
+    "https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js">
+      </script>
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "../static/images/Capturedcran2022-04-24202228.png",
+		"sameAs": [
+				"https://facebook.com/name",
+				"https://twitter.com/name"
+		]
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About">
+    <meta name="twitter:description" content="">
+    <meta property="og:title" content="About">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode">
+      
+    {% include './Header.html' %}
+
+    <section class="u-clearfix u-gradient u-section-1" id="carousel_d768">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-align-left u-custom-font u-font-lobster u-text u-text-default u-text-1" data-animation-name="flipIn" data-animation-duration="1000" data-animation-direction="X"> &nbsp;&nbsp;
+          <span class="u-file-icon u-icon u-icon-1">
+            <img src="../static/images/3406828.png" alt="">
+          </span>&nbsp;C'est l'heure de quiz 
+        </h1>
+        <div class="u-align-center u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            {% for c in all_quiz%}
+            <div class="u-border-3 u-border-white u-container-style u-list-item u-radius-34 u-repeater-item u-shape-round u-white u-list-item-1">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <h4 class="u-custom-font u-font-lato u-text u-text-3" data-animation-name="customAnimationIn" data-animation-duration="1000"><span class="u-file-icon u-icon u-icon-2">
+                  <img src="../static/images/2375555.png" alt="">
+                  
+                </span>&nbsp;Cliquer pour écoutez&nbsp; <span class="u-text-grey-90">&nbsp;​puis répondez <span style="font-weight: 700;">
+                      <span style="font-weight: 400;">
+                        <span style="font-weight: 700;"></span>
+                      </span>
+                    </span>
+                  </span>
+                </h4>
+
+
+                <audio controls>
+                  <source src="../images/{{c.son}}"type="audio/mp3">
+               </audio>
+
+               
+                <img alt="" class="u-image u-image-contain u-image-default u-image-1" data-image-width="1742" data-image-height="1443" src="{{ c.image_El.url }}">
+                <div class="check">
+                  <div class="checkbox-container">
+                  <label class="checkbox-label">{{c.val_correct}}
+                    <input  id="myCheck" type="checkbox" >
+                    <span class="mark"></span>
+                  </label>
+                  </div>
+                  <div class="checkbox-container">
+                  <label class="checkbox-label">{{c.val_fause1}} 
+                    <input type="checkbox" id="myCheck2">
+                    <span class="mark"></span>
+                  </label>
+                  </div>
+                  <div class="checkbox-container">
+                  <label class="checkbox-label">{{c.val_fause2}}
+                    <input type="checkbox" id="myCheck3">
+                    <span class="mark"></span>
+                  </label>
+                  </div>
+                  <div class="checkbox-container">
+                  <label class="checkbox-label">{{c.val_fause3}}
+                    <input type="checkbox" id="myCheck4" >
+                    <span class="mark"></span>
+                  </label>
+                  </div>
+                  </div>
+                  </div>
+            </div><br><br><br>
+            {%endfor%}
+          </div>
+        </div>     
+      </div>
+      <a  id="145"  onclick="myFunction()" class="u-btn u-button-style u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2" data-animation-name="customAnimationIn" data-animation-duration="1000">
+        <br>Voir le Score<span class="u-text-palette-3-light-1"></span>&nbsp;<span class="u-file-icon u-icon u-icon-3"><img src="../static/images/2997005.png" alt=""></span>
+      </a>
+      <a  id="155"  style="visibility: hidden;" class="u-btn u-button-style u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2" data-animation-name="customAnimationIn" data-animation-duration="1000">
+        <br>Votre score est 100/100<span class="u-text-palette-3-light-1"></span>&nbsp;<span class="u-file-icon u-icon u-icon-3"><img src="../static/images/2997005.png" alt=""></span>
+      </a>
+    </section>
+  
+    {% include './Footer.html' %}
+  </body>
+</html>  
