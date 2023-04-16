@@ -12,55 +12,61 @@ from django.core.files.storage import FileSystemStorage
 
 def Home(query):
     if query.method == 'POST':
-        nom = query.POST['Nom']
-        mail = query.POST['email']
-        msg = query.POST['message']
-        t = datetime.now()
-        Cmt = Comments.objects.create(
-            name = nom,
-            email = mail,
-            message = msg,
-            time = t
-        )
+        comment = Comments()
+        
+        comment.name = query.POST['Nom']
+        comment.email = query.POST['email']
+        comment.message = query.POST['message']
+        comment.time = datetime.now()
+        
+        comment.save()
+        
         return redirect('HomePage')
     
     category = Category.objects.all()
     return render(query,'Home.html',{'Cat':category})
 
-def Elements(query,Category_id):
-    ca = Category.objects.filter(pk=Category_id)
-    Elem = Element.objects.all().filter(category=Category_id)
-    return render(query,'Elements.html',{'elem':Elem,'ca':ca})
+def Elements(query, Category_id):
+    category = Category.objects.filter(pk=Category_id)
+    element = Element.objects.all().filter(category=Category_id)
+    
+    return render(query,'Elements.html',{'elem':element, 'ca':category})
 
 @login_required
 def Moderateur(query):
     if query.user.is_authenticated:
-        Mod = User.objects.get(pk=query.user.pk)
-        return render(query,'ModerateurHome.html',{'user':Mod})
+        moderateur = User.objects.get(pk=query.user.pk)
+        return render(query,'ModerateurHome.html',{'user':moderateur})
     
 @login_required
-def AjouterCat(query,MoId):
+def AjouterCat(query, moderateurId):
     if query.method == 'POST':
         Cat = Category()
         Cat.name = query.POST['nom']
         Cat.image = query.FILES['image']
         Cat.created_by = User.objects.get(pk=query.POST['id'])
         Cat.save()
-    Mod = User.objects.get(pk=MoId)
-    return render(query,'AjouterCat.html',{'user':Mod})
+        
+    moderateur = User.objects.get(pk=moderateurId)
+    
+    return render(query,'AjouterCat.html',{'user':moderateur})
 
 @login_required
-def AjouterElem(query,MoId):
+def AjouterElem(query, moderateurId):
     if query.method == 'POST':
-        Ele = Element()
-        Ele.name = query.POST['nom']
-        Ele.image = query.FILES['image']
-        Ele.son = query.FILES['son']
-        Ele.category = Category.objects.get(pk=query.POST['cat'])
-        Ele.save()
-    Mod = User.objects.get(pk=MoId)
-    cat = Category.objects.all().filter(created_by=MoId)
-    return render(query,'AjouterElem.html',{'user':Mod,'cat':cat})
+        element = Element()
+        
+        element.name = query.POST['nom']
+        element.image = query.FILES['image']
+        element.son = query.FILES['son']
+        element.category = Category.objects.get(pk=query.POST['cat'])
+        
+        element.save()
+        
+    moderateur = User.objects.get(pk=moderateurId)
+    category = Category.objects.all().filter(created_by=moderateurId)
+    
+    return render(query,'AjouterElem.html',{'user':moderateur, 'cat':category})
 
 
 def Quiz(query,Category_id):
@@ -70,30 +76,30 @@ def Quiz(query,Category_id):
     random.shuffle(T)
     return render(query,'Quiz.html',{'all_quiz':T})
 
-def Conimg(q):
-    if q.method == 'POST':
-        im = q.FILES['img']
+def Conimg(query):
+    if query.method == 'POST':
+        img = query.FILES['img']
 
-        fs = FileSystemStorage()
-        I = fs.save(im.name, im)
-        url = fs.url(I)
-        st="."+url
-        Cv(st)
+        fileSystem = FileSystemStorage()
+        I = fileSystem.save(img.name, img)
+        url = fileSystem.url(I)
+        
+        Convert("." + url)
     
-    return render(q,'ConvertImg.html')
+    return render(query,'ConvertImg.html')
     
-def Jeux(q):
-    return render(q,'Jeux.html')
+def Jeux(query):
+    return render(query,'Jeux.html')
 
-def JeuxHome(q):
-    return render(q,'JeuxHome.html')
+def JeuxHome(query):
+    return render(query,'JeuxHome.html')
 
 
-def Comment(q):
-    com = Comments.objects.all()
-    return render(q,'Comment.html',{'com':com})
+def Comment(query):
+    comment = Comments.objects.all()
+    return render(query,'Comment.html',{'com':comment})
 
-def Cv(img):
+def Convert(img):
     image = cv2.imread(img)
 
     # Edges
@@ -112,7 +118,8 @@ def Cv(img):
     #cv2.imshow("edges", sketch)
     cv2.imwrite("./images/ConvertImg/ImgCartoon.png", cartoon)
     cv2.imwrite("./images/ConvertImg/ImgEdges.png", sketch)
-    Cmt = ImgConvert.objects.create(
+    
+    imgConvert = ImgConvert.objects.create(
             CartonImg = "ConvertImg/ImgCartoon.png",
             EdgeImg = "ConvertImg/ImgEdges.png",
         )

@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Category(models.Model):
+    class Meta:
+        verbose_name = "Categorie"
+    
     name = models.CharField(max_length=50, unique=True)
     created_by = models.ForeignKey(User,related_name='categories', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='Category/',null=True)
